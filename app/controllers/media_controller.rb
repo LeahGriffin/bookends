@@ -1,4 +1,13 @@
 class MediaController < ApplicationController
+
+  def new
+    @medium =Medium.new
+  end
+
   def index
-  end  
+  end 
+
+  def create
+     
+   end 
 end

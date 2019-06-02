@@ -72,3 +72,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 end
 gem 'simple_form'
+gem 'devise'
+gem 'font-awesome-rails'

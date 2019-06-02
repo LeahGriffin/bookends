@@ -1,1 +1,13 @@
-<h1>Bookends</h1>
+
+<% @media.each do |medium| %>
+  <div class="booyah-box">
+    <h1><%= medium.title %></h1><br />
+    <i><%= medium.author %></i><br />
+    <i><%= medium.publisher %></i><br />
+    <i><%= medium.genre %></i><br />
+    <p><%= medium.description %></p><br />
+  </div>
+<% end %>
+
+
+

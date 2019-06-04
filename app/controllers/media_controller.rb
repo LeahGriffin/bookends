@@ -1,9 +1,10 @@
 class MediaController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def destroy
     @medium = Medium.find_by_id(params[:id])
     return render_not_found if @medium.blank?
+    return render_not_found(:forbidden) if @medium.user != current_user   
     @medium.destroy
     redirect_to root_path
   end
@@ -11,7 +12,7 @@ class MediaController < ApplicationController
   def update
     @medium = Medium.find_by_id(params[:id])
     return render_not_found if @medium.blank?
-
+    return render_not_found(:forbidden) if @medium.user != current_user
     @medium.update_attributes(medium_params)
 
     if @medium.valid?
@@ -31,12 +32,14 @@ class MediaController < ApplicationController
 
   def show
     @medium = Medium.find_by_id(params[:id])
+    @comment = Comment.new
     return render_not_found if @medium.blank?
   end
 
   def edit
     @medium = Medium.find_by_id(params[:id])
     return render_not_found if @medium.blank?
+    return render_not_found(:forbidden) if @medium.user != current_user
   end
 
 
@@ -56,7 +59,7 @@ class MediaController < ApplicationController
     params.require(:medium).permit(:genre, :publisher, :title, :author, :description)
   end
 
-  def render_not_found
-    render plain: 'Not properly shelved :(', status: :not_found
+  def render_not_found(status=:not_found)
+    render plain: "#{status.to_s.titleize} :(", status: status
   end
 end

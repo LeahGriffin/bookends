@@ -75,3 +75,4 @@ end
 gem 'simple_form'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'faker', '~> 1.9', '>= 1.9.3'

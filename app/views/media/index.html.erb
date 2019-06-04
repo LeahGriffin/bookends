@@ -1,11 +1,15 @@
 
 <% @media.each do |medium| %>
-  <div class="booyah-box">
-    <h1><%= medium.title %></h1><br />
+  <div class="booyah-box col-10 offset-1">
+    <h1><%= link_to medium.title, medium_path(medium) %></h1><br />
     <i><%= medium.author %></i><br />
     <i><%= medium.publisher %></i><br />
     <i><%= medium.genre %></i><br />
     <p><%= medium.description %></p><br />
+
+    <% if medium.user.present? %>
+      <small><%= medium.user.email %></small>
+    <% end %>    
   </div>
 <% end %>
 

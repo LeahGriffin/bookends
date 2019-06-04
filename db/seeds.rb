@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+10.times do
+  Medium.create([{
+    genre: Faker::Book.genre,
+    publisher: Faker::Book.publisher,
+    title: Faker::Book.title,
+    author: Faker::Book.author,
+    description: Faker::Quote.yoda,
+  }])
+end

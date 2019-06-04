@@ -1,3 +1,4 @@
+<div class="booyah-box col-10 offset-1">
 <h1>Put your stuff here</h1>
 <%= simple_form_for @medium do |f| %>
   <%= f.input :genre %>
@@ -5,5 +6,7 @@
   <%= f.input :title %>
   <%= f.input :author %>
   <%= f.input :description %>
-  <%= f.submit "Bookit!!" %>
+  <br />
+  <%= f.submit 'Bookit!!', class: 'btn btn-primary' %>
 <% end %>
+</div>

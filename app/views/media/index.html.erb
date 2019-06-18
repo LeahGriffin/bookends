@@ -9,9 +9,18 @@
 
     <% if medium.user.present? %>
       <small><%= medium.user.email %></small>
-    <% end %>    
+    <% end %>
+    <% if medium.comments.present? %> 
+      <div class="col-12">
+        <blockquote>
+          <b><%= medium.comments.last.rating %></b> -
+            <%= medium.comments.last.description %>
+          <small><%= medium.comments.last.user.email %></small>
+        </blockquote>
+      </div> 
+    <% end %>  
   </div>
 <% end %>
 
-
+<%= will_paginate @media %>
 

@@ -12,21 +12,49 @@
     
   </div>
 </div> 
+
+<div class="col-10 offset-1">
+
+  <h1 class="float-left">Random Thoughts</h1>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+    JournalIt!!!
+  </button>
+</div>
+
 <div class="clear"></div>
-<%= simple_form_for @comment, url: medium_comments_path(@medium) do |f| %>
-    <%= f.input :description %>
-    <%= f.input :rating %>
-    <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
-<% end %> 
-
-<h1>Comments</h1>
-
-<% @medium.comments.each do |comment| %>
-  <div>
-    <blockquote>
-      <b><%= comment.rating %></b> -
-        <%= comment.description %>
-      <small><%= comment.user.email %></small>
-    </blockquote>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Random Thoughts</h4>
+      </div>
+      <%= simple_form_for @comment, url: medium_comments_path(@medium) do |f| %>
+        <div class="modal-body">
+          <%= f.input :description, label: "Journal Entry" %> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "JournalIt!!!", class: 'btn btn-primary' %>
+        </div>
+      <% end %> 
+    </div>
   </div>
-<% end %>
+</div>
+
+
+<div class='row'>
+  <% @medium.comments.each do |comment| %>
+    <div class="col-12 col-sm-6">
+      <blockquote>
+        <b><%= comment.rating %></b> -
+          <%= comment.description %>
+        <small><%= comment.user.email %></small>
+      </blockquote>
+    </div>
+  <% end %>
+</div>

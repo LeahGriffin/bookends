@@ -8,12 +8,20 @@
 
 
 
-10.times do
-  Medium.create([{
-    genre: Faker::Book.genre,
-    publisher: Faker::Book.publisher,
-    title: Faker::Book.title,
-    author: Faker::Book.author,
-    description: Faker::Quote.yoda,
-  }])
-end
+# 10.times do
+#   Medium.create(
+#     genre: Faker::Book.genre,
+#     publisher: Faker::Book.publisher,
+#     title: Faker::Book.title,
+#     author: Faker::Book.author,
+#     description: Faker::Quote.yoda
+#   )
+# end
+
+Medium.save(
+  genre: 'thriller',
+  publisher: 'random',
+  title: 'Nope',
+  author: 'Steve',
+  description: 'scary'
+  )

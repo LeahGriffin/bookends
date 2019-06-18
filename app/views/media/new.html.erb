@@ -1,7 +1,7 @@
 <div class="booyah-box col-10 offset-1">
 <h1>Put your stuff here</h1>
 <%= simple_form_for @medium do |f| %>
-  <%= f.input :genre %>
+  <%= f.input :genre, :collection => ['Fiction', 'Non-Fiction', 'Science Fiction', 'Fantasy', 'Self-Help'] %>
   <%= f.input :publisher %>
   <%= f.input :title %>
   <%= f.input :author %>

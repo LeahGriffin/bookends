@@ -27,7 +27,7 @@ class MediaController < ApplicationController
   end
 
   def index
-    @media = Medium.all.paginate(:per_page => 5, :page => params[:page])
+    @media = Medium.all.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
   end 
 
   def show

@@ -77,3 +77,5 @@ gem 'devise'
 gem 'font-awesome-rails'
 gem 'faker', '~> 1.9', '>= 1.9.3'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem "geocoder"
+gem "figaro"

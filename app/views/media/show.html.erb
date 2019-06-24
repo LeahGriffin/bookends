@@ -4,6 +4,35 @@
   <i><%= @medium.publisher %></i><br />
   <i><%= @medium.genre %></i><br />
   <p><%= @medium.description %></p><br />
+  <p><%= @medium.address %></p><br />
+
+  <% if @medium.latitude.present? && @medium.longitude.present? %>
+    
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: <%= @medium.latitude %>, lng: <%= @medium.longitude %>;
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLVu0vNtdok_EM0fi9K4x1PMNcZAD-fdk&callback=initMap">
+    </script>
+
+    <div id="map"></div>
+  <% end %>
+    
   <div class="float-right">
     <% if current_user && current_user == @medium.user %>
       <%= link_to 'Edit', edit_medium_path(@medium), class: 'btn btn-primary' %>
@@ -21,6 +50,8 @@
     JournalIt!!!
   </button>
 </div>
+
+
 
 <div class="clear"></div>
 <!-- Modal -->
@@ -58,3 +89,4 @@
     </div>
   <% end %>
 </div>
+

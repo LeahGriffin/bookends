@@ -1,4 +1,9 @@
-
+<!--   <%= form_tag media_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :title => nil %>
+    </p>
+  <% end %> -->
 <% @media.each do |medium| %>
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to medium.title, medium_path(medium) %></h1><br />

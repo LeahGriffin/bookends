@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,17 +21,17 @@
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
 
           <li class="nav-item">
-            <%= link_to new_medium_path, class: 'nav-link' do %>
+            <%= link_to new_medium_path, class: 'nav-brand' do %>
               <i class="fas fa-bookmark"></i> -->
             New Stuff
             <% end %>
           </li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
+        <!-- <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form> -->
       </div>
     </nav>  
     <% if current_user %>
